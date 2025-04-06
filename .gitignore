@@ -1,0 +1,21 @@
+# Node
+node_modules/
+.env
+*.log
+
+# React build
+frontend/build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode/
+.idea/
+*.swp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
