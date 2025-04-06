@@ -1,0 +1,44 @@
+Project bd_ecommerce_deportivo {
+  database_type: "MySQL"
+}
+
+Table categorias {
+  id int [pk, increment]
+  nombre varchar(100) [unique, not null]
+  descripcion text
+}
+
+Table productos {
+  id int [pk, increment]
+  nombre varchar(150) [not null]
+  descripcion text
+  precio decimal(10,2) [not null]
+  categoria_id int
+  fecha_creacion timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table imagenes {
+  id int [pk, increment]
+  producto_id int [not null]
+  url_imagen text [not null]
+  es_principal boolean [default: false]
+}
+
+Table variantes {
+  id int [pk, increment]
+  producto_id int [not null]
+  talla varchar(5) [note: "XS, S, M, L, XL, XXL"]
+  color varchar(50) [not null]
+}
+
+Table stock {
+  id int [pk, increment]
+  variante_id int [not null]
+  cantidad int [not null, default: 0]
+}
+
+Ref: productos.categoria_id > categorias.id
+Ref: imagenes.producto_id > productos.id
+Ref: variantes.producto_id > productos.id
+Ref: stock.variante_id > variantes.id
+
