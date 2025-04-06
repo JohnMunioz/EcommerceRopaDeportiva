@@ -83,18 +83,22 @@ Diseño lógico del modelo de datos del sistema Ecommerce.
 
 *El diagrama cubre entidades como categorías, productos, variantes, stock e imágenes, estructuradas para garantizar escalabilidad y rendimiento.*
 
---- 
 
-📊 Entidades Principales
-🧱 Entidad	📋 Descripción
-categorias	Clasifica los productos en tipos como ropa, calzado, accesorios, etc.
-productos	Contiene información general del producto como nombre, descripción y precio base.
-variantes	Define versiones del producto (por ejemplo: color, talla, modelo).
-stock	Relaciona cada variante con su cantidad disponible en inventario.
-imagenes	Asocia uno o más archivos visuales por producto o variante.
-💡 Este diseño permite una gestión modular y escalable de los productos, así como una experiencia de usuario enriquecida gracias a la variedad de variantes y representaciones visuales.
 
----
+### 📊 Entidades Principales
+
+| 🧱 Entidad    | 📋 Descripción                                                                                                                                     |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `categorias` | Clasifica los productos en tipos como ropa, calzado, accesorios, etc.                                                                             |
+| `productos`  | Contiene información general del producto como nombre, descripción y precio base.                                                                 |
+| `variantes`  | Define versiones del producto (por ejemplo: color, talla, modelo).                                                                                |
+| `stock`      | Relaciona cada variante con su cantidad disponible en inventario.                                                                                 |
+| `imagenes`   | Asocia uno o más archivos visuales por producto o variante.                                                                                       |
+
+> 💡 *Este diseño permite una gestión modular y escalable de los productos, así como una experiencia de usuario enriquecida gracias a la variedad de variantes y representaciones visuales.*
+
+
+
 
 ## 🔗 Repositorio
 [GitHub del proyecto](https://github.com/JohnMunioz/EcommerceRopaDeportiva)
