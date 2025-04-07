@@ -27,19 +27,40 @@
 
 ```
 EcommerceRopaDeportiva/
-├── backend/                                # Servidor con Express (Node.js)
-│   └── index.js                            # Archivo principal del backend
-│   └── ...                                 # Otros archivos y carpetas del backend
-├── frontend/                               # Aplicación React
-│   ├── src/                                # Código fuente React
-│   ├── public/                             # Archivos estáticos
-│   └── ...                                 # Otros archivos del frontend
-├── resources/                              # Recursos del proyecto
-│   ├── Mockup-Ecommerce.png                # Mockup visual de la tienda
+├── backend/                                # Servidor backend con Node.js y Express
+│   ├── img/                                # Carpeta para imágenes de productos (estáticas)
+│   ├── node_modules/                       # Dependencias del backend
+│   ├── db.js                               # Configuración de conexión a MySQL
+│   ├── index.js                            # Archivo principal del servidor
+│   ├── package.json                        # Dependencias y scripts del backend
+│   └── package-lock.json                   # Archivo de bloqueo de dependencias
+│
+├── frontend/                               # Aplicación frontend con React
+│   ├── node_modules/                       # Dependencias del frontend
+│   ├── public/                             # Archivos públicos y estáticos
+│   ├── src/                                # Código fuente principal de React
+│   │   ├── components/                     # Componentes reutilizables
+│   │   │   ├── Tienda.jsx                  # Componente principal de la tienda
+│   │   │   └── Tienda.css                  # Estilos CSS para el componente Tienda
+│   │   ├── pages/                          # (Espacio reservado para futuras páginas)
+│   │   ├── App.js                          # Componente raíz de React
+│   │   ├── App.css                         # Estilos globales
+│   │   ├── App.test.js                     # Pruebas de React
+│   │   ├── index.js                        # Punto de entrada del frontend
+│   │   ├── index.css                       # Estilos generales
+│   │   ├── logo.svg                        # Logo por defecto
+│   │   ├── reportWebVitals.js              # Medición de rendimiento
+│   │   └── setupTests.js                   # Configuración de pruebas
+│   ├── package.json                        # Dependencias y scripts del frontend
+│   └── package-lock.json                   # Archivo de bloqueo de dependencias
+│
+├── resources/                              # Recursos visuales y documentación técnica
+│   ├── bd_ecommerce_deportivo.dbml         # Modelo de base de datos en formato DBML
 │   ├── Diagrama_bd_ecommerce_deporti.png   # Diagrama lógico de la base de datos
-│   └── bd_ecommerce_deportivo.dbml         # Modelo de base de datos en formato DBML
-├── .gitignore                              # Archivos y carpetas a ignorar por Git
-├── README.md                               # Documentación principal del proyecto
+│   └── Mockup-Ecommerce.png                # Mockup visual de la tienda
+│
+├── .gitignore                              # Archivos que Git debe ignorar
+└── README.md                               # Documentación principal del proyecto
 ```
 ---
 # Descripción general del proyecto
