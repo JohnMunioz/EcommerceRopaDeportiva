@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const db = require('./db'); // Conexión a MySQL
+const db = require('./db'); // Asegúrate de que este archivo tenga tu conexión a MySQL
 
 const app = express();
 
@@ -74,7 +74,6 @@ app.get('/productos/:id', (req, res) => {
 app.post('/productos', (req, res) => {
   const { nombre, descripcion, precio, imagen_url, categoria_id } = req.body;
 
-  // Validaciones básicas
   if (!nombre || !descripcion || !precio || !imagen_url || !categoria_id) {
     return res.status(400).json({ error: 'Todos los campos son obligatorios' });
   }
@@ -84,13 +83,15 @@ app.post('/productos', (req, res) => {
     VALUES (?, ?, ?, ?, ?)
   `;
 
-  db.query(sql, [nombre, descripcion, precio, imagen_url, categoria_id], (err, result) => {
-    if (err) {
-      console.error('❌ Error al crear producto:', err.message);
-      return res.status(500).json({ error: 'Error al crear producto' });
+  const values = [nombre, descripcion, precio, imagen_url, categoria_id];
+
+  db.query(sql, values, (error, result) => {
+    if (error) {
+      console.error('❌ Error al insertar producto:', error.message);
+      return res.status(500).json({ error: 'Error al insertar producto' });
     }
 
-    res.status(201).json({ mensaje: '✅ Producto creado correctamente', productoId: result.insertId });
+    res.status(201).json({ mensaje: '✅ Producto creado correctamente', id: result.insertId });
   });
 });
 
@@ -99,7 +100,6 @@ app.put('/productos/:id', (req, res) => {
   const id = req.params.id;
   const { nombre, descripcion, precio, imagen_url, categoria_id } = req.body;
 
-  // Validaciones básicas
   if (!nombre || !descripcion || !precio || !imagen_url || !categoria_id) {
     return res.status(400).json({ error: 'Todos los campos son obligatorios' });
   }
@@ -110,7 +110,9 @@ app.put('/productos/:id', (req, res) => {
     WHERE id = ?
   `;
 
-  db.query(sql, [nombre, descripcion, precio, imagen_url, categoria_id, id], (err, result) => {
+  const values = [nombre, descripcion, precio, imagen_url, categoria_id, id];
+
+  db.query(sql, values, (err, result) => {
     if (err) {
       console.error('❌ Error al actualizar producto:', err.message);
       return res.status(500).json({ error: 'Error al actualizar producto' });
@@ -124,7 +126,7 @@ app.put('/productos/:id', (req, res) => {
   });
 });
 
-// ✅ Eliminar un producto por ID
+// ✅ Eliminar un producto
 app.delete('/productos/:id', (req, res) => {
   const id = req.params.id;
 

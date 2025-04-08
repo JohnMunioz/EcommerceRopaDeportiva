@@ -119,7 +119,80 @@ Diseño lógico del modelo de datos del sistema Ecommerce.
 > 💡 *Este diseño permite una gestión modular y escalable de los productos, así como una experiencia de usuario enriquecida gracias a la variedad de variantes y representaciones visuales.*
 
 
+### 🛠️ Funcionalidad CRUD del Backend
 
+La API RESTful permite gestionar productos deportivos mediante operaciones básicas de **crear, leer, actualizar y eliminar (CRUD)** desde el backend.
+
+### 📦 Endpoints CRUD
+
+| ⚙️ Método | 🛣️ Ruta               | 🧭 Acción                          | 🧪 Ejemplo de uso     |
+|----------|------------------------|-----------------------------------|------------------------|
+| `GET`    | `/productos`           | Obtener todos los productos       | `/productos`          |
+| `GET`    | `/productos/:id`       | Obtener un producto por ID        | `/productos/16`       |
+| `POST`   | `/productos`           | Crear un nuevo producto           | `/productos`          |
+| `PUT`    | `/productos/:id`       | Actualizar un producto existente  | `/productos/16`       |
+| `DELETE` | `/productos/:id`       | Eliminar un producto por ID       | `/productos/16`       |
+
+---
+
+### 🧪 Ejemplos de Uso
+
+#### 📥 Crear Producto → `POST /productos`
+```json
+{
+  "nombre": "Balón Adidas Football",
+  "descripcion": "Balón oficial de alto rendimiento",
+  "precio": 300.00,
+  "imagen_url": "/img/Balon_Adidas.jpg",
+  "categoria": 12
+}
+```
+
+#### 📤 Obtener Todos los Productos → `GET /productos`
+```json
+[
+  {
+    "id": 16,
+    "nombre": "Camiseta Adidas Climalite",
+    "descripcion": "Camiseta deportiva transpirable para entrenamiento",
+    "precio": 89.99,
+    "imagen_url": "/img/Camiseta_Run.jpg",
+    "categoria": "Ropa deportiva"
+  }
+]
+```
+
+#### 🔍 Obtener Producto por ID → `GET /productos/16`
+```json
+{
+  "id": 16,
+  "nombre": "Camiseta Adidas Climalite",
+  "descripcion": "Camiseta deportiva transpirable para entrenamiento",
+  "precio": 89.99,
+  "imagen_url": "/img/Camiseta_Run.jpg",
+  "categoria": "Ropa deportiva"
+}
+```
+
+#### ♻️ Actualizar Producto → `PUT /productos/16`
+```json
+{
+  "nombre": "Camiseta Adidas Techfit",
+  "descripcion": "Camiseta de entrenamiento con compresión y tecnología Techfit",
+  "precio": 99.99,
+  "imagen_url": "/img/Camiseta_Adidas_Techfit.jpg",
+  "categoria": 10
+}
+```
+
+#### 🗑️ Eliminar Producto → `DELETE /productos/16`
+```json
+{
+  "mensaje": "Producto eliminado correctamente"
+}
+```
+
+---
 
 ## 🔗 Repositorio
 [GitHub del proyecto](https://github.com/JohnMunioz/EcommerceRopaDeportiva)
