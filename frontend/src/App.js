@@ -1,16 +1,11 @@
-// src/App.js
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Tienda from './components/Tienda';
-import Header from './components/Header';
+import './App.css';
+import Productos from './components/Productos';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Tienda />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Productos />
+    </div>
   );
 }
 
