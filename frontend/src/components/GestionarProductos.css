@@ -1,0 +1,142 @@
+:root {
+  --bg: #f5f5f5;
+  --text: #111;
+  --card: #fff;
+  --border: #ccc;
+  --primary: #007bff;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --hover: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --card: #1e1e1e;
+    --border: #333;
+    --hover: #2a2a2a;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.gestion-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.formulario {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.acciones-formulario {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-cancelar {
+  background-color: var(--border);
+  color: var(--text);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-warning {
+  background-color: var(--warning);
+  color: black;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--hover);
+}
+
+.imagen-tabla {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.paginacion {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.paginacion button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background: var(--hover);
+  color: var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.paginacion button.activo {
+  background: var(--primary);
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

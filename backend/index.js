@@ -35,7 +35,14 @@ app.get('/productos', (req, res) => {
       console.error('❌ Error al consultar productos:', err.message);
       return res.status(500).json({ error: 'Error al consultar productos' });
     }
-    res.json(results);
+
+    // Convertir precio a número
+    const productos = results.map(p => ({
+      ...p,
+      precio: Number(p.precio)
+    }));
+
+    res.json(productos);
   });
 });
 
@@ -66,7 +73,13 @@ app.get('/productos/:id', (req, res) => {
       return res.status(404).json({ error: 'Producto no encontrado' });
     }
 
-    res.json(results[0]);
+    // Convertir precio a número
+    const producto = {
+      ...results[0],
+      precio: Number(results[0].precio)
+    };
+
+    res.json(producto);
   });
 });
 
@@ -145,6 +158,21 @@ app.delete('/productos/:id', (req, res) => {
     res.json({ mensaje: '✅ Producto eliminado correctamente' });
   });
 });
+
+// ✅ Obtener todas las categorías
+app.get('/categorias', (req, res) => {
+  const sql = 'SELECT * FROM categorias';
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('❌ Error al obtener categorías:', err.message);
+      return res.status(500).json({ error: 'Error al obtener categorías' });
+    }
+
+    res.json(results);
+  });
+});
+
 
 // ----------------------------------------
 // INICIAR SERVIDOR
